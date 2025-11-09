@@ -21,33 +21,33 @@
       aspect-ratio: 3/4;
       cursor: pointer;
     }
-    .envelope img, .invite img {
+    .invite img, .envelope img {
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.2);
       transition: all 1s ease;
     }
-    .invite img {
+    .envelope img {
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
     }
-    .open .envelope img {
+    .open .invite img {
       opacity: 0;
     }
-    .open .invite img {
+    .open .envelope img {
       opacity: 1;
     }
   </style>
 </head>
 <body>
   <div class="card-wrap" onclick="this.classList.toggle('open')">
-    <div class="envelope">
-      <img src="envelope.jpg" alt="Envelope cover" />
-    </div>
     <div class="invite">
       <img src="invite.jpg" alt="Invitation card" />
+    </div>
+    <div class="envelope">
+      <img src="envelope.jpg" alt="Envelope cover" />
     </div>
   </div>
 </body>
