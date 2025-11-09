@@ -34,20 +34,20 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotate(0deg);
       width: 0;
       height: 0;
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-bottom: 100px solid #e8d4c3;
-      transform-origin: top center;
+      border-top: 100px solid #e8d4c3;
+      transform-origin: bottom center;
       transition: transform 1s ease;
       z-index: 3;
     }
 
     .card {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, 0);
       width: 90%;
@@ -57,11 +57,11 @@
     }
 
     .container.open .flap {
-      transform: translateX(-50%) rotateX(180deg);
+      transform: translateX(-50%) rotate(-120deg);
     }
 
     .container.open .card {
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -60%);
     }
 
     .envelope img,
