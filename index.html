@@ -34,28 +34,15 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%) rotate(180deg); /* Point downward */
+      transform: translateX(-50%) rotate(180deg); /* Rotate triangle downward */
       width: 0;
       height: 0;
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-bottom: 100px solid #a02c2c; /* Flap fill */
+      border-bottom: 100px solid #a02c2c; /* Match envelope color */
       transform-origin: top center;
       transition: transform 1.5s ease, opacity 1s ease 2.5s;
       z-index: 5;
-    }
-
-    .flap::after {
-      content: "";
-      position: absolute;
-      top: -100px;
-      left: -150px;
-      width: 0;
-      height: 0;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 100px solid #6e1c1c; /* Darker red border */
-      z-index: -1;
     }
 
     .card {
