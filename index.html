@@ -34,12 +34,12 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%) rotateX(0deg);
+      transform: translateX(-50%) rotate(180deg); /* Rotate triangle downward */
       width: 0;
       height: 0;
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-top: 100px solid #a02c2c; /* Match envelope color */
+      border-bottom: 100px solid #a02c2c; /* Match envelope color */
       transform-origin: top center;
       transition: transform 1.5s ease, opacity 1s ease 2.5s;
       z-index: 5;
@@ -58,7 +58,7 @@
     }
 
     .container.open .flap {
-      transform: translateX(-50%) rotateX(180deg);
+      transform: translateX(-50%) rotate(0deg); /* Flip upward */
       opacity: 0;
     }
 
