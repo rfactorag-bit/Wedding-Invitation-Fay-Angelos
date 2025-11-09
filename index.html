@@ -15,60 +15,74 @@
       height: 100vh;
     }
 
-    .card-container {
-      perspective: 1000px;
+    .envelope-container {
+      position: relative;
       width: 300px;
       height: 400px;
-    }
-
-    .card {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1s;
       cursor: pointer;
     }
 
-    .card.open {
-      transform: rotateY(180deg);
-    }
-
-    .side {
+    .envelope {
       position: absolute;
       width: 100%;
       height: 100%;
-      backface-visibility: hidden;
+      background: #fff;
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      z-index: 2;
     }
 
-    .front {
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #f2e6d9;
+      transform-origin: top;
+      transition: transform 1s ease;
+      z-index: 3;
+    }
+
+    .card {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      width: 90%;
+      height: 90%;
       background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      transition: transform 1s ease 0.5s;
+      z-index: 1;
     }
 
-    .back {
-      background: #fff;
-      transform: rotateY(180deg);
+    .envelope-container.open .flap {
+      transform: rotateX(180deg);
     }
 
-    .side img {
+    .envelope-container.open .card {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .envelope img, .card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
-  <div class="card-container" onclick="document.querySelector('.card').classList.toggle('open')">
+  <div class="envelope-container" onclick="this.classList.toggle('open')">
+    <div class="envelope">
+      <img src="envelope.jpg" alt="Envelope" />
+      <div class="flap"></div>
+    </div>
     <div class="card">
-      <div class="side front">
-        <img src="envelope.jpg" alt="Envelope" />
-      </div>
-      <div class="side back">
-        <img src="invite.jpg" alt="Invitation" />
-      </div>
+      <img src="invite.jpg" alt="Invitation" />
     </div>
   </div>
 </body>
