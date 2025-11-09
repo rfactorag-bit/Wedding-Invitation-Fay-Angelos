@@ -42,7 +42,7 @@
       border-top: 100px solid #a02c2c; /* Match envelope color */
       transform-origin: bottom center;
       transition: transform 1.5s ease, opacity 1s ease 2.5s;
-      z-index: 3;
+      z-index: 5; /* Ensure flap is on top */
     }
 
     .card {
@@ -54,7 +54,7 @@
       height: 90%;
       opacity: 0;
       transition: top 1.5s ease 1.5s, opacity 1s ease 1.5s;
-      z-index: 2;
+      z-index: 3;
     }
 
     .container.open .flap {
