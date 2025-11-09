@@ -39,8 +39,8 @@
       height: 0;
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-top: 100px solid #a02c2c; /* Match envelope color */
-      transform-origin: bottom center;
+      border-bottom: 100px solid #a02c2c; /* Match envelope color */
+      transform-origin: top center;
       transition: transform 1s ease;
       z-index: 3;
     }
@@ -58,8 +58,7 @@
     }
 
     .container.open .flap {
-      transform: translateX(-50%) rotate(-120deg);
-      transition: transform 1s ease;
+      transform: translateX(-50%) rotateX(180deg);
     }
 
     .container.open .card {
@@ -67,9 +66,8 @@
       opacity: 1;
     }
 
-    /* Return flap to top after animation */
     .container.open.return .flap {
-      transform: translateX(-50%) rotate(0deg);
+      transform: translateX(-50%) rotateX(0deg);
       transition: transform 1s ease 2s;
     }
 
@@ -99,7 +97,7 @@
         el.classList.add('open');
         setTimeout(() => {
           el.classList.add('return');
-        }, 2000); // Wait for card to slide before flap returns
+        }, 2000); // Flap returns after card slides in
       }
     }
   </script>
