@@ -42,18 +42,18 @@
       border-bottom: 100px solid #e8d4c3;
       transform-origin: top center;
       transition: transform 1s ease;
-      z-index: 2;
+      z-index: 3;
     }
 
     .card {
       position: absolute;
-      bottom: -100%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, 0);
       width: 90%;
       height: 90%;
-      transition: bottom 1s ease 0.5s;
-      z-index: 3;
+      transition: transform 1s ease 0.5s;
+      z-index: 2;
     }
 
     .container.open .flap {
@@ -61,7 +61,7 @@
     }
 
     .container.open .card {
-      bottom: 0;
+      transform: translate(-50%, -50%);
     }
 
     .envelope img,
