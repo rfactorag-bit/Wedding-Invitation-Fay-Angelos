@@ -42,7 +42,7 @@
       border-top: 100px solid #a02c2c; /* Match envelope color */
       transform-origin: bottom center;
       transition: transform 1s ease;
-      z-index: 2;
+      z-index: 3;
     }
 
     .card {
@@ -53,17 +53,24 @@
       width: 90%;
       height: 90%;
       opacity: 0;
-      transition: top 1s ease 0.5s, opacity 0.5s ease 0.5s;
-      z-index: 3;
+      transition: top 1s ease 1s, opacity 0.5s ease 1s;
+      z-index: 2;
     }
 
     .container.open .flap {
       transform: translateX(-50%) rotate(-120deg);
+      transition: transform 1s ease;
     }
 
     .container.open .card {
       top: 20px;
       opacity: 1;
+    }
+
+    /* Return flap to top after animation */
+    .container.open.return .flap {
+      transform: translateX(-50%) rotate(0deg);
+      transition: transform 1s ease 2s;
     }
 
     .envelope img,
@@ -76,7 +83,7 @@
   </style>
 </head>
 <body>
-  <div class="container" onclick="this.classList.toggle('open')">
+  <div class="container" onclick="openEnvelope(this)">
     <div class="envelope">
       <img src="envelope.jpg" alt="Envelope" />
     </div>
@@ -85,5 +92,16 @@
       <img src="invite.jpg" alt="Invitation" />
     </div>
   </div>
+
+  <script>
+    function openEnvelope(el) {
+      if (!el.classList.contains('open')) {
+        el.classList.add('open');
+        setTimeout(() => {
+          el.classList.add('return');
+        }, 2000); // Wait for card to slide before flap returns
+      }
+    }
+  </script>
 </body>
 </html>
