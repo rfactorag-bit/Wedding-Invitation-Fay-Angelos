@@ -20,6 +20,7 @@
       width: 300px;
       height: 400px;
       cursor: pointer;
+      overflow: hidden;
     }
 
     .envelope {
@@ -45,12 +46,12 @@
 
     .card {
       position: absolute;
-      bottom: 0;
+      bottom: -100%;
       left: 50%;
-      transform: translateX(-50%) translateY(100%);
+      transform: translateX(-50%);
       width: 90%;
       height: 90%;
-      transition: transform 1s ease 0.5s;
+      transition: bottom 1s ease 0.5s;
       z-index: 4;
     }
 
@@ -59,7 +60,7 @@
     }
 
     .container.open .card {
-      transform: translateX(-50%) translateY(0);
+      bottom: 0;
     }
 
     .envelope img,
@@ -73,13 +74,13 @@
 </head>
 <body>
   <div class="container" onclick="this.classList.toggle('open')">
+    <div class="card">
+      <img src="invite.jpg" alt="Invitation" />
+    </div>
     <div class="envelope">
       <img src="envelope.jpg" alt="Envelope" />
     </div>
     <div class="flap"></div>
-    <div class="card">
-      <img src="invite.jpg" alt="Invitation" />
-    </div>
   </div>
 </body>
 </html>
