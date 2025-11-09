@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Invitation</title>
   <style>
     body {
@@ -14,40 +14,61 @@
       align-items: center;
       height: 100vh;
     }
-    .card-wrap {
+
+    .card-container {
+      perspective: 1000px;
+      width: 300px;
+      height: 400px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
       position: relative;
-      width: 90%;
-      max-width: 500px;
-      aspect-ratio: 3/4;
+      transform-style: preserve-3d;
+      transition: transform 1s;
       cursor: pointer;
     }
-    .envelope img, .invite img {
+
+    .card.open {
+      transform: rotateY(180deg);
+    }
+
+    .side {
+      position: absolute;
       width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-      transition: all 1s ease;
     }
-    .invite img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
+
+    .front {
+      background: #fff;
     }
-    .open .envelope img {
-      opacity: 0;
+
+    .back {
+      background: #fff;
+      transform: rotateY(180deg);
     }
-    .open .invite img {
-      opacity: 1;
+
+    .side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
     }
   </style>
 </head>
 <body>
-  <div class="card-wrap" onclick="this.classList.toggle('open')">
-    <div class="envelope">
-      <img src="envelope.jpg" alt="Envelope cover" />
-    </div>
-    <div class="invite">
-      <img src="invite.jpg" alt="Invitation card" />
+  <div class="card-container" onclick="document.querySelector('.card').classList.toggle('open')">
+    <div class="card">
+      <div class="side front">
+        <img src="envelope.jpg" alt="Envelope" />
+      </div>
+      <div class="side back">
+        <img src="invite.jpg" alt="Invitation" />
+      </div>
     </div>
   </div>
 </body>
